@@ -1,9 +1,9 @@
-# Mason's Project
+# Some Cool Project
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ## Description 
-> Some cool stuff.
+> This is a super cool project. Take a look around and I'm sure you'll agree.
 
-![Developer Photo](blah) 
+![Developer Photo](https://images.pexels.com/photos/16059888/pexels-photo-16059888/free-photo-of-apple-iphone-connection-technology.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1) 
 
 # Table of Contents
 
@@ -17,37 +17,34 @@
 
 ## Installation
 To install this project, follow these steps:
-1. One
- 2. Two
- 3. Three
+1. Go to  our website.
+ 2. Download app.
 
 
 ## Usage
 How to use project:
-1. One
- 2. Two
- 3. Three
+1. Open app.
+ 2. Fill in sections.
+ 3. Submit.
 
 
 ## Contributing
 Ways you can contribute:
-- One
- - Two
- - Three
+- Fork repositry.
+ - Go to our discord and start a conversation.
 
 
 ## Tests
 To run the project's tests, follow these steps:
-1. one
- 2. two
- 3. three
+1. Go to the Develop folder.
+ 2. Go into the terminal and run "node index".
 
 
 ## Questions
-- GitHub Profile: [username](thing)
-- Email: email
+- GitHub Profile: [CoolName](https://github.com/CoolName)
+- Email: coolName@gmail.com
 
-Reach out at the email.
+Reach out to us through our email.
 
 ## License
 This project is licensed under the [MIT license](https://opensource.org/licenses/MIT).

@@ -80,7 +80,7 @@ function showInstallationMenu() {
                     return getInstallationSteps();
                 default:
                     project.installation = project.installation.join(" ");
-                    getUsage();
+                    showUsageMenu();
             }
         });
 }
@@ -148,7 +148,7 @@ function showContributingMenu() {
                     return getContribution();
                 default:
                     project.contribution = project.contribution.join(" ");
-                    getQuestionsIntructions();
+                    getUserName();
             }
         });
 }
@@ -164,7 +164,7 @@ function getQuestionsIntructions() {
         })
         .then((answer) => {
             project.questionInstruction = answer.questionInstruction;
-            getUserName();
+            showTestMenu();
         });
 }
 
@@ -176,18 +176,6 @@ function getUserName() {
         })
         .then((answer) => {
             project.userName = answer.userName;
-            getProfileLink();
-        });
-}
-
-function getProfileLink() {
-    inquirer
-        .prompt({
-            name: "profileLink",
-            message: "Please enter your profile link",
-        })
-        .then((answer) => {
-            project.profileLink = answer.profileLink;
             getEmail();
         });
 }
@@ -200,7 +188,7 @@ function getEmail() {
         })
         .then((answer) => {
             project.email = answer.email;
-            showTestMenu();
+            getQuestionsIntructions();
         });
 }
 
@@ -248,7 +236,16 @@ function pickLicense() {
             name: "license",
             message: "Please select a licesne.",
             type: "list",
-            choices: ["MIT", "ISC", "IPL"],
+            choices: [
+                "MIT",
+                "ISC",
+                "GPL-3.0",
+                "Apache-2.0",
+                "BSD-3-Clause",
+                "LGPL-3.0",
+                "MPL-2.0",
+                "Unlicense",
+            ],
         })
         .then((answer) => {
             project.license = answer.license;
@@ -287,8 +284,6 @@ function showEndMenu() {
         .then((answer) => {
             switch (answer.choice) {
                 case "Generate README File":
-                    console.log("generated");
-                    console.log(project);
                     generateMarkdown(project);
             }
         });
