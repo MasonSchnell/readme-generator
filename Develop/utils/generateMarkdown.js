@@ -1,7 +1,5 @@
 const fs = require("fs");
 
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
 function renderLicenseBadge(license) {
     switch (license) {
         case "MIT":
@@ -14,8 +12,7 @@ function renderLicenseBadge(license) {
             return "";
     }
 }
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
+
 function renderLicenseLink(license) {
     switch (license) {
         case "MIT":
@@ -29,17 +26,13 @@ function renderLicenseLink(license) {
     }
 }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
-
-// TODO: Create a function to generate markdown for README
 function generateMarkdown(answerObj) {
     const badge = renderLicenseBadge(answerObj.license);
     const licenseLink = renderLicenseLink(answerObj.license);
 
     const md = `
 # ${answerObj.title}
+[![License: ${answerObj.license}](${badge})](${licenseLink})
 ## Description 
 > ${answerObj.description}
 
@@ -49,20 +42,39 @@ function generateMarkdown(answerObj) {
 
 1. [Installation](#installation)
 2. [Usage](#usage)
-4. [License](#license)
-5. [Contributing](#contributing)
+4. [Contributing](#contributing)
+5. [Questions](#questions)
 6. [Tests](#tests)
-7. [Questions](#questions)
+7. [License](#license)
+
 
 ## Installation
+To install this project, follow these steps:
 ${answerObj.installation}
 
+## Usage
+How to use project:
+${answerObj.usageStep}
+
+## Contributing
+Ways you can contribute:
+${answerObj.contribution}
+
+## Tests
+To run the project's tests, follow these steps:
+${answerObj.test}
+
+## Questions
+- GitHub Profile: [${answerObj.userName}](${answerObj.profileLink})
+- Email: ${answerObj.email}
+
+${answerObj.questionInstruction}
+
 ## License
-[![License: ${answerObj.license}](${badge})](${licenseLink})
+This project is licensed under the [${answerObj.license} license](${licenseLink}).
 `;
 
     fs.writeFile("./README.md", md.trim(), (err) => {
-        console.log("inside");
         if (err) throw err;
         console.log("File created succesfully");
     });

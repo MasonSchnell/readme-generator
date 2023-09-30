@@ -1,24 +1,53 @@
-# Mom
+# Mason's Project
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ## Description 
-> Dad
+> Some cool stuff.
 
-![Developer Photo]() 
+![Developer Photo](blah) 
 
 # Table of Contents
 
 1. [Installation](#installation)
 2. [Usage](#usage)
-4. [License](#license)
-5. [Contributing](#contributing)
+4. [Contributing](#contributing)
+5. [Questions](#questions)
 6. [Tests](#tests)
-7. [Questions](#questions)
+7. [License](#license)
+
 
 ## Installation
-1. 333
- 2. 444
- 3. 555
- 4. 666
+To install this project, follow these steps:
+1. One
+ 2. Two
+ 3. Three
 
+
+## Usage
+How to use project:
+1. One
+ 2. Two
+ 3. Three
+
+
+## Contributing
+Ways you can contribute:
+- One
+ - Two
+ - Three
+
+
+## Tests
+To run the project's tests, follow these steps:
+1. one
+ 2. two
+ 3. three
+
+
+## Questions
+- GitHub Profile: [username](thing)
+- Email: email
+
+Reach out at the email.
 
 ## License
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+This project is licensed under the [MIT license](https://opensource.org/licenses/MIT).
