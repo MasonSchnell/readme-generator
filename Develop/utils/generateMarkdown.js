@@ -29,12 +29,6 @@ function renderLicenseLink(license) {
     }
 }
 
-function wantsInstallation(result) {
-    switch (result) {
-        case "YES":
-    }
-}
-
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {}
@@ -43,27 +37,32 @@ function renderLicenseSection(license) {}
 function generateMarkdown(answerObj) {
     const badge = renderLicenseBadge(answerObj.license);
     const licenseLink = renderLicenseLink(answerObj.license);
-    const installation1 = answerObj.installation;
-    const breakInstallation = installation1.split("\n");
-    const formattedList = breakInstallation
-        .map((item, index) => `${index + 1}. ${item}`)
-        .join("\n");
-    console.log(answerObj);
+
     const md = `
-# ${answerObj.userTitle}
+# ${answerObj.title}
 ## Description 
 > ${answerObj.description}
 
-![Developer Photo](${answerObj.image})
+![Developer Photo](${answerObj.image}) 
+
+# Table of Contents
+
+1. [Installation](#installation)
+2. [Usage](#usage)
+4. [License](#license)
+5. [Contributing](#contributing)
+6. [Tests](#tests)
+7. [Questions](#questions)
 
 ## Installation
-> ${formattedList}
+${answerObj.installation}
 
 ## License
 [![License: ${answerObj.license}](${badge})](${licenseLink})
 `;
 
     fs.writeFile("./README.md", md.trim(), (err) => {
+        console.log("inside");
         if (err) throw err;
         console.log("File created succesfully");
     });
