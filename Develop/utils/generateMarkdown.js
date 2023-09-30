@@ -6,8 +6,18 @@ function renderLicenseBadge(license) {
             return "https://img.shields.io/badge/License-MIT-yellow.svg";
         case "ISC":
             return "https://img.shields.io/badge/License-ISC-blue.svg";
-        case "IPL":
-            return "https://img.shields.io/badge/License-IPL_1.0-blue.svg";
+        case "GPL-3.0":
+            return "https://img.shields.io/badge/License-GPL_3.0-blue.svg";
+        case "Apache-2.0":
+            return "https://img.shields.io/badge/License-Apache_2.0-blue.svg";
+        case "BSD-3-Clause":
+            return "https://img.shields.io/badge/License-BSD_3--Clause-blue.svg";
+        case "LGPL-3.0":
+            return "https://img.shields.io/badge/License-LGPL_3.0-blue.svg";
+        case "MPL-2.0":
+            return "https://img.shields.io/badge/License-MPL_2.0-blue.svg";
+        case "Unlicense":
+            return "https://img.shields.io/badge/License-Unlicense-lightgrey.svg";
         default:
             return "";
     }
@@ -19,8 +29,18 @@ function renderLicenseLink(license) {
             return "https://opensource.org/licenses/MIT";
         case "ISC":
             return "https://opensource.org/licenses/ISC";
-        case "IPL":
-            return "https://opensource.org/licenses/IPL-1.0";
+        case "GPL-3.0":
+            return "https://opensource.org/licenses/GPL-3.0";
+        case "Apache-2.0":
+            return "https://opensource.org/licenses/Apache-2.0";
+        case "BSD-3-Clause":
+            return "https://opensource.org/licenses/BSD-3-Clause";
+        case "LGPL-3.0":
+            return "https://opensource.org/licenses/LGPL-3.0";
+        case "MPL-2.0":
+            return "https://opensource.org/licenses/MPL-2.0";
+        case "Unlicense":
+            return "";
         default:
             return "";
     }
@@ -65,7 +85,7 @@ To run the project's tests, follow these steps:
 ${answerObj.test}
 
 ## Questions
-- GitHub Profile: [${answerObj.userName}](${answerObj.profileLink})
+- GitHub Profile: [${answerObj.userName}](https://github.com/${answerObj.userName})
 - Email: ${answerObj.email}
 
 ${answerObj.questionInstruction}
@@ -76,7 +96,6 @@ This project is licensed under the [${answerObj.license} license](${licenseLink}
 
     fs.writeFile("./README.md", md.trim(), (err) => {
         if (err) throw err;
-        console.log("File created succesfully");
     });
 }
 
