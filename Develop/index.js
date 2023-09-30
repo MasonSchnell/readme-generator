@@ -1,55 +1,113 @@
-// TODO: Include packages needed for this application
 const inquirer = require("inquirer");
-const fs = require("fs"); // Import the fs module
-const tools = require("./utils/generateMarkdown.js");
+const generateMarkdown = require("./utils/generateMarkdown");
+const project = {
+    references: [],
+    installation: [],
+};
 
-// TODO: Create an array of questions for user input
-const questions = [
-    {
-        type: "input",
-        name: "userTitle",
-        message: "What would you like your title to be?",
-    },
-    {
-        type: "input",
-        name: "description",
-        message: "Please write a description for your project.",
-    },
-    {
-        type: "input",
-        name: "image",
-        message: "Please include a picture URL for your project.",
-    },
-    {
-        type: "list",
-        name: "license",
-        message: "Which license would you like to use?",
-        choices: ["MIT", "ISC", "IPL"],
-    },
-    {
-        type: "numbered-list",
-        name: "installation",
-        message: "Input instructions",
-    },
-];
-
-function promptUser() {
-    return inquirer.prompt(questions);
+function getTitle() {
+    inquirer
+        .prompt({
+            name: "title",
+            message: "Please enter your project title.",
+        })
+        .then((answer) => {
+            project.title = answer.title;
+            getDescription();
+        });
 }
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function getDescription() {
+    inquirer
+        .prompt({
+            name: "description",
+            message: "Please enter your project description.",
+        })
+        .then((answer) => {
+            project.description = answer.description;
+            showInstallationMenu();
+        });
+}
 
-// TODO: Create a function to initialize app
-function init() {}
+let refNum = 1;
+function getInstallationSteps() {
+    inquirer
+        .prompt({
+            name: "link",
+            message: "Please enter the installation steps one by one.",
+        })
+        .then((answer) => {
+            project.installation.push(refNum + ". " + answer.link + "\n");
+            refNum++;
+            showInstallationMenu();
+        });
+}
 
-// Function call to initialize app
-init();
+function showInstallationMenu() {
+    inquirer
+        .prompt({
+            name: "choice",
+            message: "Please make a choice.",
+            type: "list",
+            choices: ["Add an installation step", "Next"],
+        })
+        .then((answer) => {
+            switch (answer.choice) {
+                case "Add an installation step":
+                    return getInstallationSteps();
+                default:
+                    project.installation = project.installation.join(" ");
+                    pickLicense();
+            }
+        });
+}
 
-promptUser()
-    .then((answers) => {
-        tools(answers);
-    })
-    .catch((error) => {
-        console.error("Error:", error);
-    });
+function pickLicense() {
+    licenseArray = [];
+    inquirer
+        .prompt({
+            name: "license",
+            message: "Please select a licesne.",
+            type: "list",
+            choices: ["MIT", "ISC", "IPL"],
+        })
+        .then((answer) => {
+            project.license = answer.license;
+            addImage();
+        });
+}
+
+function addImage() {
+    inquirer
+        .prompt({
+            name: "image",
+            message: "Please insert image URL",
+        })
+        .then((answer) => {
+            project.image = answer.image;
+            showMainMenu();
+        });
+}
+
+function showMainMenu() {
+    inquirer
+        .prompt({
+            name: "choice",
+            message: "Please choose a menu item.",
+            type: "list",
+            choices: ["Build README", "Generate README File"],
+        })
+        .then((answer) => {
+            switch (answer.choice) {
+                case "Build README":
+                    return getTitle();
+                default:
+                    console.log("generated");
+                    console.log(project);
+                    generateMarkdown(project);
+                // process.exit();
+            }
+        });
+}
+
+showMainMenu();
